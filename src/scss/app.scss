@@ -1,0 +1,11 @@
+@import './fonts';
+@import './variables';
+@import './libs/normalize';
+
+@import './component/all';
+
+body {
+  background-color: $body;
+  padding: 0;
+  margin: 0;
+}
