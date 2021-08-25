@@ -43,7 +43,7 @@ function App() {
         comment: commentValue,
       })
       .then(({ data }) => {
-        setInvoices(data[0].invoices);
+        setInvoices(data.invoices);
         onClose();
       })
       .catch(() => {
@@ -59,7 +59,6 @@ function App() {
   };
 
   const onEditInvoice = (invoice) => {
-    console.log(invoice);
     setNumberValue(invoice.number);
     setDateCreatedValue(
       format(parse(invoice.date_created, 'dd-MM-yyyy', new Date()), 'yyyy-MM-dd'),
@@ -92,6 +91,7 @@ function App() {
               <p>Comment</p>
               <p>Options</p>
             </div>
+
             {invoices ? (
               <ListItem
                 items={invoices}
@@ -108,6 +108,7 @@ function App() {
             )}
           </div>
         </div>
+
         <AddInvoice active={modalActive} setActive={setModalActive}>
           <div className="invoice_body">
             <svg
